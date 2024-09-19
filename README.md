@@ -30,3 +30,65 @@ To run this project, you’ll need to have the following installed:
 
 ```bash
 git clone https://github.com/yourusername/yourproject.git
+
+### Step 2: Navigate to the project directory
+
+```bash
+cd expenseswebsite
+
+### Step 3: Set up a virtual environment
+
+```bash
+python -m venv venv
+## Activate the virtual environment:
+
+```bash
+On Windows:
+venv\Scripts\activate
+On macOS/Linux:
+source venv/bin/activate
+
+###  Step 4: Install dependencies
+
+```bash
+pip install -r requirements.txt
+
+###  Step 5: Set up environment variables
+
+Example .env file:
+# .env
+
+SECRET_KEY='django-insecure-7tfrb&=mdi2!jj#9p7wargu6+tn0ni*r@r2-^p(90fz)vlht+z'
+DEBUG=True
+
+# Database credentials
+DB_NAME=smalltskdb
+DB_USER=postgres
+DB_PASSWORD=********
+DB_HOST=localhost
+DB_PORT=5432
+
+# Email settings
+EMAIL_PORT=587
+
+api_key ='******************************************************'
+
+MAILERSEND_API_KEY="********************************"
+
+### Step 6: Apply migrations
+
+```bash
+python manage.py migrate
+
+### Step 7: Create a superuser (optional)
+
+```bash
+python manage.py createsuperuser
+
+### Step 8: Run the development server
+
+```bash
+python manage.py runserver
+
+
+
