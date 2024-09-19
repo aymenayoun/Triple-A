@@ -29,7 +29,7 @@ To run this project, you’ll need to have the following installed:
 ### Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/yourproject.git
+git clone https://github.com/aymenayoun/Triple-A
 
 ### Step 2: Navigate to the project directory
 
