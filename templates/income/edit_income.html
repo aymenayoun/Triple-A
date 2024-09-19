@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<div class="container mt-4" style="max-width: 800px; margin-left: 22%; margin-right: auto;">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'income' %}">Income</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Income</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Edit Income</h4>
+                <form action="{% url 'edit-income' income.id %}" method="POST">
+                    {% include 'partials/_messages.html' %}
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" class="form-control" id="amount" name="amount" value="{{values.amount}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="income_date">Date</label>
+                        <input type="date" class="form-control" id="income_date" name="income_date" value="{{ values.date|date:'Y-m-d' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" name="description" value="{{values.description}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="source">Source</label>
+                        <select class="form-control" id="source" name="source"  required>
+                            {% for source in sources %}
+                            <option value="{{ source.name }}" {% if source.name == values.source %}selected{% endif %}>{{ source.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <p></p>
+                    <button type="submit" class="btn btn-primary btn-primary-sm">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock  %}
+
+

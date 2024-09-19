@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4" style="margin-left: 20%;">
+    <h1>Income vs Expenses</h1>
+    <p></p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Total Income</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ total_income }} {{ currency }}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-header">Total Expenses</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ total_expenses }} {{ currency }}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-header">Balance</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ balance }} {{ currency }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

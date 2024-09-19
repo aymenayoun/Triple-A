@@ -1,0 +1,14 @@
+#header {
+
+    background: var(--header-bg);
+    color: var(--header-color);
+}
+
+div.breadcrumbs{
+    background:rgb(61, 88, 106) ;
+    padding:10px 40px ;
+    color: #ffffff ;
+    font-size: 14px;
+    text-align:left ;
+    border: none;
+}

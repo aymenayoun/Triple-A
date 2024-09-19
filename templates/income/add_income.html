@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4" style="max-width: 800px; margin-left: 22%; margin-right: auto;">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'income' %}">Income</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Add Income</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Add Income</h4>
+                <form action="{% url 'add-income' %}" method="POST">
+                    {% include 'partials/_messages.html' %}
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" class="form-control" id="amount" name="amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="income_date">Date</label>
+                        <input type="date" class="form-control" id="income_date" name="income_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" name="description">
+                    </div>
+                    <div class="form-group">
+                        <label for="source">Source</label>
+                        <select class="form-control" id="source" name="source" required>
+                            {% for source in sources %}
+                            <option value="{{ source.name }}">{{ source.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>                    
+                    <p></p>
+                    <button type="submit" class="btn btn-primary btn-primary-sm">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock  %}
+
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="margin-left: 210px; margin-top:10px">
+    {% include 'partials/_messages.html' %}
+    <form action="{% url 'preferences' %}" method="post">
+        {% csrf_token %}
+        <h5>Currency of choice</h5>
+        <hr/>
+        <div class="input-group">
+            <select name="currency" class="custom-select" id="inputGroupSelect04">
+                {% if user_settings.currency %}
+                    <option selected value="{{ user_settings.currency }}">{{ user_settings.currency }}</option>
+                {% endif %}
+                {% for currency in currencies %}
+                    <option value="{{ currency.name }}-{{ currency.value }}">{{ currency.name }}-{{ currency.value }}</option>
+                {% endfor %}
+            </select>
+            <div class="input-group-append">
+                <input class="btn btn-outline-secondary" type="submit" value="Save"/>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

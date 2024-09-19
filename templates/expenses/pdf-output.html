@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widtr=device-widtr, initial-scale=1.0">
+    <title>PDF Output</title>
+
+    <style>
+        @page{
+            size: "A4";
+            margin: 2.5cm 1.5cm 3.5cm 1.5cm ;
+            @top-center {
+                content: "triple -A- Expenses";
+            }
+            @bottom-right{
+                content: "Page " counter(page)" of "counter(pages);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <img src="{{ logo_url }}" alt="Logo" style="width: 50px; height: 50px; object-fit: contain; float:center; margin: left 500px;">
+    </div>
+    <h2>Expenses Table</h2>
+    <table class="table">
+        <thead>
+            <th>
+                <tr>No</tr>
+                <tr>Amount</tr>
+                <tr>Category</tr>
+                <tr>Description</tr>
+                <tr>Date</tr>
+            </th>
+        </thead>
+        <tbody>
+            {% for exp in expenses %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{exp.amount}}</td>
+                <td>{{exp.category}}</td>
+                <td>{{exp.description}}</td>
+                <td>{{exp.date}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td></td>
+                <td>{{total}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>
