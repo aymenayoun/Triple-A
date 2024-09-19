@@ -15,6 +15,7 @@ To run this project, you’ll need to have the following installed:
 - Python (3.12.0)
 - Django (5.1)
 - PostgreSQL 16 =>pgAdmin 4 
+- Postman
 - pip (22.2.2)
 - pip install -r requirements.txt
 - pip install psycopg2-binary
