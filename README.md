@@ -1,6 +1,6 @@
 # Triple -A- Expenses
 
-A simple web app useful for managing both expenses and income.
+A  web app useful for managing both expenses and income.
 
 ## Features
 
